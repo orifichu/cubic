@@ -7,15 +7,16 @@ class Site extends MY_Controller {
 
 	public function index()
 	{
-		$page_name = __FUNCTION__;
-		$view_name = sprintf("%s%s", $this->prefix, $page_name);
+		$view_name = $this->get_view_name( $this->prefix, __FUNCTION__ );
 
+		//cargar el archivo que contiene las traducciones que le corresponden a este view
 		$this->load_language( $view_name );
 
+		//cargar el view
 		$this->load->view( $view_name, $this->data );
 	}
 
-	public function mail_contact()
+	public function mail()
 	{
 		$this->load->library('smtp');
 		$this->load->library('phpmailer');

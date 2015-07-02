@@ -159,6 +159,7 @@ class MY_Lang extends CI_Lang
         log_message('debug', "Language_Identifier Class Initialized");
     }
 
+    //Extraer el lenguaje que ha sido configurado como preferido en el navegador del usuario
     function prefered_language($available_languages,$http_accept_language="auto") { 
         // if $http_accept_language was left out, read it from the HTTP-Header 
         if ($http_accept_language == "auto") $http_accept_language = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : ''; 
