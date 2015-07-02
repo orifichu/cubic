@@ -29,7 +29,8 @@ $config['base_url'] = '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+//$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -71,7 +72,16 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= 'spanish';
+
+/* default language abbreviation */
+$config['language_abbr'] = "es";
+
+/* set available language abbreviations */
+$config['lang_uri_abbr'] = array("es" => "spanish", "en" => "english");
+
+/* hide the language segment (use cookie) */
+$config['lang_ignore'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
