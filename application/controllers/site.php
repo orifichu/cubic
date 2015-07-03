@@ -12,7 +12,14 @@ class Site extends MY_Controller {
 		//cargar el archivo que contiene las traducciones que le corresponden a este view
 		$this->load_language( $view_name );
 
-		//cargar el view
+		//cargar el view que contiene el script de google analytics y almacenarlo en una variable
+		$this->data['google_analytics'] = $this->load->view(
+			$this->get_view_name( $this->prefix, 'google_analytics' )
+			, NULL
+			, TRUE
+		);
+
+		//cargar el view principal
 		$this->load->view( $view_name, $this->data );
 	}
 

@@ -17,7 +17,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = '';
+$config['base_url'] = 'http://localhost/cubic/';
+
+/*
+|--------------------------------------------------------------------------
+| Assets URL
+|--------------------------------------------------------------------------
+|
+| URL to your CodeIgniter assets folder. Typically this will be your base URL,
+| PLUS the assets folder WITH a trailing slash:
+|
+|	http://example.com/assets/
+|
+*/
+$config['assets_url'] = $config['base_url'] . 'assets/';
 
 /*
 |--------------------------------------------------------------------------

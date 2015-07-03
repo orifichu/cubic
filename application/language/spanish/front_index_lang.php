@@ -1,10 +1,10 @@
 <?php
 //ESPAÑOL
-$p = ''; //general prefix
+$prefix = ''; //general prefix
 
 //sección: META
-$seccion_prefix = 'meta_';
+$section_prefix = 'meta_';
 
-$p = $seccion_prefix;
-$lang[$p . 'title']       = '';
-$lang[$p . 'description'] = '';
+$prefix = $section_prefix;
+$lang[$prefix . 'title']       = 'Título de la página';
+$lang[$prefix . 'description'] = 'Descripción de la página';
