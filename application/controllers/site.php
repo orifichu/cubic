@@ -3,7 +3,7 @@
 class Site extends MY_Controller {
 
 	//variables generales
-	var $prefix = 'front_';
+	protected $prefix = 'front_';
 
 	public function index()
 	{
