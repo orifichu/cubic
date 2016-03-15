@@ -23,6 +23,15 @@ class MY_Controller extends CI_Controller
         $this->load->helper('language');
     }
 
+    protected function load_google_analytics_view( $view_name )
+    {
+        $this->data['google_analytics'] = $this->load->view(
+            $this->folder . '/' . $view_name
+            , NULL
+            , TRUE
+        );
+    }
+
     protected function load_view( $view_name )
     {
         $this->load->view( $this->folder . '/' . $view_name, $this->data );

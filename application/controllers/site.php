@@ -16,11 +16,7 @@ class Site extends MY_Controller {
 		$this->load_language( $view_name );
 
 		//cargar el view que contiene el script de google analytics y almacenarlo en una variable
-		$this->data['google_analytics'] = $this->load->view(
-			$this->get_view_name( $this->prefix, 'google_analytics' )
-			, NULL
-			, TRUE
-		);
+		$this->load_google_analytics_view();
 
 		//cargar el view
 		$this->load_view( __FUNCTION__ );
