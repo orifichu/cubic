@@ -2,8 +2,10 @@
 
 class MY_Controller extends CI_Controller
 {
-    protected $data   = array();
-    protected $folder = "";
+    protected $data                       = array();
+    protected $folder                     = "";
+    protected $google_analytics_view_name = "";
+    protected $with_google_analytics      = false;
 
     public function __construct()
     {
@@ -46,6 +48,10 @@ class MY_Controller extends CI_Controller
 
     protected function load_view( $view_name )
     {
+        //Cargar la vista correspondiente a Google Analytics siempre y cuando se desee hacerlo y siempre y cuando dicha vista tenga nombre
+        if ( $this->with_google_analytics && $this->google_analytics_view_name != '' ) {
+            $this->load_google_analytics_view( $this->google_analytics_view_name );
+        }
         $this->load->view( $this->get_pathname($view_name), $this->data );
     }
 }

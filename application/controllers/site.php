@@ -7,16 +7,19 @@ class Site extends MY_Controller {
         parent::__construct();
 
         //Definir el folder que contendrá los views a los que mayormente llamará esta clase
-		$this->folder = "front";
+		$this->folder                = "front";
+
+		//Nombre del view correspondiente a Google Analytics
+		$this->google_analytics_view_name = 'google_analytics';
+
+		//Para cargar el código de Google Analytics por defecto en todas la vistas
+		$this->with_google_analytics = true;
     }
 
 	public function index()
 	{
 		//cargar el archivo que contiene las traducciones que le corresponden a este view
 		$this->load_language( $view_name );
-
-		//cargar el view que contiene el script de google analytics y almacenarlo en una variable
-		$this->load_google_analytics_view();
 
 		//cargar el view
 		$this->load_view( __FUNCTION__ );
