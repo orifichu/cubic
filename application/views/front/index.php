@@ -99,6 +99,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="<?php echo assets_url(); ?>js/plugins.js"></script>
         <script src="<?php echo assets_url(); ?>js/main.js"></script>
 
-        <?php echo $google_analytics; ?>
+        <?php echo $google_analytics_view; ?>
     </body>
 </html>

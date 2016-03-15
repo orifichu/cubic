@@ -26,7 +26,7 @@ class MY_Controller extends CI_Controller
 
     protected function load_google_analytics_view( $view_name )
     {
-        $this->data['google_analytics'] = $this->load->view(
+        $this->data['google_analytics_view'] = $this->load->view(
             $this->get_pathname($view_name)
             , NULL
             , TRUE
