@@ -10,6 +10,18 @@ class MY_Controller extends CI_Controller
         parent::__construct();
     }
 
+    protected function get_pathname( $view_name )
+    {
+        $folder = rtrim($this->folder, '/');
+        if ( $folder != '' ) {
+            $folder += '/';
+        }
+
+        $pathname = $folder . $view_name;
+
+        return $pathname;
+    }
+
     protected function load_language( $filename )
     {
         $language      = $this->config->item('language');
@@ -26,7 +38,7 @@ class MY_Controller extends CI_Controller
     protected function load_google_analytics_view( $view_name )
     {
         $this->data['google_analytics'] = $this->load->view(
-            $this->folder . '/' . $view_name
+            $this->get_pathname($view_name)
             , NULL
             , TRUE
         );
@@ -34,6 +46,6 @@ class MY_Controller extends CI_Controller
 
     protected function load_view( $view_name )
     {
-        $this->load->view( $this->folder . '/' . $view_name, $this->data );
+        $this->load->view( $this->get_pathname($view_name), $this->data );
     }
 }
