@@ -2,13 +2,16 @@
 
 class Site extends MY_Controller {
 
-	//variables generales
-	protected $prefix = 'front_';
+	public function __construct()
+    {
+        parent::__construct();
+
+        //Definir el folder que contendrá los views a los que mayormente llamará esta clase
+		$this->folder = "front";
+    }
 
 	public function index()
 	{
-		$view_name = $this->get_view_name( $this->prefix, __FUNCTION__ );
-
 		//cargar el archivo que contiene las traducciones que le corresponden a este view
 		$this->load_language( $view_name );
 
@@ -19,8 +22,8 @@ class Site extends MY_Controller {
 			, TRUE
 		);
 
-		//cargar el view principal
-		$this->load->view( $view_name, $this->data );
+		//cargar el view
+		$this->load_view( __FUNCTION__ );
 	}
 
 	public function mail()

@@ -2,16 +2,12 @@
 
 class MY_Controller extends CI_Controller
 {
-    protected $data = array();
+    protected $data   = array();
+    protected $folder = "";
 
     public function __construct()
     {
         parent::__construct();
-    }
-
-    protected function get_view_name( $prefix, $page_name )
-    {
-        return sprintf("%s%s", $prefix, $page_name);
     }
 
     protected function load_language( $filename )
@@ -25,5 +21,10 @@ class MY_Controller extends CI_Controller
         $this->lang->load( $filename, $language);
 
         $this->load->helper('language');
+    }
+
+    protected function load_view( $view_name )
+    {
+        $this->load->view( $this->folder . '/' . $view_name, $this->data );
     }
 }
