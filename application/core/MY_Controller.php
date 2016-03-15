@@ -41,7 +41,7 @@ class MY_Controller extends CI_Controller
         //la variable "language_abbr" servirá para el lang del head del código html y para las rutas
         $this->data['language_abbr'] = $language_abbr;
 
-        $this->lang->load( $filename, $language);
+        $this->lang->load( $this->get_pathname($filename), $language);
 
         $this->load->helper('language');
     }
