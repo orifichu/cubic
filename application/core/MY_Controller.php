@@ -38,7 +38,7 @@ class MY_Controller extends CI_Controller
         $language      = $this->config->item('language');
         $language_abbr = $this->config->item('language_abbr');
 
-        //la variable "language_abbr" servirá para el lang del html y para las rutas
+        //la variable "language_abbr" servirá para el lang del head del código html y para las rutas
         $this->data['language_abbr'] = $language_abbr;
 
         $this->lang->load( $filename, $language);
@@ -48,10 +48,15 @@ class MY_Controller extends CI_Controller
 
     protected function load_view( $view_name )
     {
+        //Cargar el archivo correspondiente al lenguaje del site. Las funciones relacionadas con el lenguaje serán obligatorias
+        $this->load_language( $view_name );
+
         //Cargar la vista correspondiente a Google Analytics siempre y cuando se desee hacerlo y siempre y cuando dicha vista tenga nombre
         if ( $this->with_google_analytics && $this->google_analytics_view_name != '' ) {
             $this->load_google_analytics_view( $this->google_analytics_view_name );
         }
+
+        //Cargar la vista 
         $this->load->view( $this->get_pathname($view_name), $this->data );
     }
 }

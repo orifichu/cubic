@@ -18,9 +18,6 @@ class Site extends MY_Controller {
 
 	public function index()
 	{
-		//cargar el archivo que contiene las traducciones que le corresponden a este view
-		//$this->load_language( $view_name );
-
 		//cargar el view
 		$this->load_view( __FUNCTION__ );
 	}
